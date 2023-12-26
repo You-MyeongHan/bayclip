@@ -92,7 +92,7 @@ public class Item {
 				.viewCnt(this.viewCnt)
 				.wr_date(this.wr_date)
 				.re_date(this.re_date)
-				.region(this.region)
+//				.region(this.region)
 				.status(this.status)
 				.del_date(this.del_date)
 				.dib_cnt(this.getDib().size())
