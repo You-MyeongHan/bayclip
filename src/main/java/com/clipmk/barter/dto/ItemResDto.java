@@ -29,7 +29,7 @@ public class ItemResDto {
 	private boolean dib_state;
 	private Integer viewCnt;
 	private String user_nick;
-	private Region region;
+//	private Region region;
 	private int user_id;
 	private Page<DealsResDto> deals;
 	private Integer status;
