@@ -24,6 +24,7 @@ public class PostsResDto {
 	private Integer view_cnt;
 	private Integer recommend_cnt;
 	private Integer comment_cnt;
+	private String thumbnail;
 
 	public static PostsResDto from(Post post) {
 		PostsResDto postsResDto = PostsResDto.builder()
@@ -36,6 +37,7 @@ public class PostsResDto {
 				.view_cnt(post.getViewCnt())
 				.recommend_cnt(post.getRecommendations().size())
 				.comment_cnt(post.getComments().size())
+				.thumbnail(post.getThumbnail())
 				.build();
 		return postsResDto;
 	}
