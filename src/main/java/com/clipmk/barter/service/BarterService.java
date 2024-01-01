@@ -81,14 +81,14 @@ public class BarterService {
 	public Boolean register(ItemReqDto request, Integer userId) {
 		
 		User user=userRepository.findById(userId).orElse(null);
-//		Region region = regionRepository.findByCode(request.getCode())
-//                .orElseThrow(null);
+		Region region = regionRepository.findByCode(request.getCode())
+                .orElseThrow(null);
 		Item item = Item.builder()
 				.title(request.getTitle())
 				.category(request.getCategory())
 				.content(request.getContent())
 				.img_src(request.getImgSrc())
-//				.region(region)
+				.region(region)
 				.status(1)
 				.user(user)
 				.build();
