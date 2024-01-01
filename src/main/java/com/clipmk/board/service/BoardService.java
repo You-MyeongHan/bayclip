@@ -167,6 +167,17 @@ public class BoardService {
 		User user=userRepository.findById(userId).orElseThrow(
 				()-> new RestApiException(UserErrorCode.USER_NOT_FOUND));
 		
+		String htmlContent=request.getContent();
+		Document doc = Jsoup.parse(htmlContent);
+		String thumbnail = null;
+		Elements imgTags = doc.select("img");
+		if (imgTags != null) {
+            String srcAttribute = imgTags.attr("src");
+            if (srcAttribute.contains("https://clipmarket.s3.ap-northeast-2.amazonaws.com/posts/images/main")) {
+                thumbnail = srcAttribute;
+            }
+        }
+		
 		Integer point = user.getPoint();
 		Post post=Post.builder()
 				.title(request.getTitle())
@@ -174,7 +185,7 @@ public class BoardService {
 				.grp(request.getGroup())
 				.content(parseContentAndMoveImages(request.getContent()))
 				.user(user)
-				.thumbnail(request.getThumbnail())
+				.thumbnail(thumbnail)
 				.build();
 		point+=CPP;
 		
