@@ -167,7 +167,7 @@ public class BoardService {
 		User user=userRepository.findById(userId).orElseThrow(
 				()-> new RestApiException(UserErrorCode.USER_NOT_FOUND));
 		
-		String htmlContent=request.getContent();
+		String htmlContent=parseContentAndMoveImages(request.getContent());
 		Document doc = Jsoup.parse(htmlContent);
 		String thumbnail = null;
 		Elements imgTags = doc.select("img");
@@ -183,7 +183,7 @@ public class BoardService {
 				.title(request.getTitle())
 				.tbl(request.getTable())
 				.grp(request.getGroup())
-				.content(parseContentAndMoveImages(request.getContent()))
+				.content(htmlContent)
 				.user(user)
 				.thumbnail(thumbnail)
 				.build();
