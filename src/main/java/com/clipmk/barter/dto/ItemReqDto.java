@@ -15,6 +15,7 @@ public class ItemReqDto {
 	private String title;
 	private String content;
 	private String category;
-	private String code;
+	private String regionCode;
+	private String thumbnail;
 	private List<String> imgSrc;
 }
