@@ -15,6 +15,7 @@ public class DealsResDto {
 	private Long id;
 	private String title;
 	private LocalDateTime  wr_date;
+	private String img_src;
 	private String nick;
 	
 	public static DealsResDto from(Deal deal) {
@@ -23,6 +24,7 @@ public class DealsResDto {
 				.id(deal.getId())
 				.title(deal.getFromItem().getTitle())
 				.wr_date(deal.getWr_date())
+				.img_src(deal.getFromItem().getImg_src().get(0))
 				.nick(deal.getFromUser().getNick())
 				.build();
 		return dealsResDto;
