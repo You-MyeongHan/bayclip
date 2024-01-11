@@ -70,7 +70,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 			
 			id = tokenProvider.extractId(refreshToken);
 			User user=userService.loadUserByUsername(id);
-			String accessToken=tokenProvider.generateAccessToken(id,user.getNick());
+			String accessToken=tokenProvider.generateAccessToken(id,user.getNick(), user.getPoint());
 			response.setHeader("Authorization", "Bearer " + accessToken);			
 			
 			if(tokenProvider.isTokenValid(accessToken,user)) {

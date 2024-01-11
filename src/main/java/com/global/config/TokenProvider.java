@@ -71,8 +71,9 @@ public class TokenProvider {
 		return refreshToken;
 	}
 	
-	public String generateAccessToken(String user_id, String user_nick) {
-		Map<String, Object> claims = Map.of("user_nick", user_nick);
+	public String generateAccessToken(String user_id, String user_nick, int user_point) {
+		Map<String, Object> claims = Map.of("user_nick", user_nick
+											,"user_point", user_point);
 		return generateToken(claims, user_id, accessExpiration); 
 	}
 	
@@ -82,8 +83,9 @@ public class TokenProvider {
 			Object principal = authentication.getPrincipal();
 			Integer id = ((User) principal).getId();
 			String nick = ((User) principal).getNick();
+			int point = ((User)principal).getPoint();
 			
-			return generateAccessToken(id.toString(),nick);
+			return generateAccessToken(id.toString(), nick, point);
 		}else {
 			return null;
 		}

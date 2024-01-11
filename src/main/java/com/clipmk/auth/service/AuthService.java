@@ -42,7 +42,7 @@ public class AuthService implements LogoutHandler{
 		    throw new RestApiException(AuthErrorCode.INVALID_CREDENTIALS);
 		}
 		
-		var accessToken=tokenProvider.generateAccessToken(user.getId().toString(), user.getNick());
+		var accessToken=tokenProvider.generateAccessToken(user.getId().toString(), user.getNick(), user.getPoint());
 		var refreshToken = tokenProvider.generateRefreshToken(user.getId().toString());
 		
 		return AuthResDto.builder()
