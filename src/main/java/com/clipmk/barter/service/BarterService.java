@@ -168,6 +168,8 @@ public class BarterService {
 		barterRepository.save(item);
 	}
 	
+	//아이템 상태 변경
+//	public 
 	
 	//거래 제안
 	public void suggestDeal(Long fromItemId, Long toItemId, User fromUser) {

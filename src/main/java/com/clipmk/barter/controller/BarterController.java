@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,6 +123,7 @@ public class BarterController {
 		return ResponseEntity.ok().build();
 	}
 	
+	
 	//거래 제안
 	@PostMapping("/item/{to-item-id}/suggest/{from-item-id}")
 	public ResponseEntity<Void> suggestDeal(
@@ -134,7 +136,19 @@ public class BarterController {
 		
 		return ResponseEntity.ok().build();
 	}
-	
+
+	//아이템 상태 변경
+	@PutMapping("/item/{item-id}/restate")
+	public ResponseEntity<Void> restate(
+			@PathVariable(value="item-id") Long itemId,
+			@AuthenticationPrincipal User user
+	){	
+		
+		barterService.restate(itemId, user);
+		
+		return ResponseEntity.ok().build(); 
+		
+	}
 	//거래 수락
 	@PostMapping("/accept")
 	public ResponseEntity<Long> acceptDeal(
