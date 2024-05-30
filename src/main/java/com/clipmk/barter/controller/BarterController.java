@@ -42,7 +42,8 @@ public class BarterController {
 	@PostMapping("/item")
 	public ResponseEntity<Void> register(
 			@RequestBody ItemReqDto request,
-			@AuthenticationPrincipal User user
+			@AuthenticationPrincipal User user,
+			
 	){
 		
 		barterService.register(request, user.getId());
