@@ -108,7 +108,7 @@ public class BarterService {
 		Item item=barterRepository.findItemById(itemId).orElseThrow(
 				()-> new RestApiException(BarterErrorCode.ITEM_NOT_FOUND));
 		
-		if (!item.getUser().getId().equals(user.getId())) {
+		if (!item.getUser().equals(user)) {
 	        throw new RestApiException(BarterErrorCode.ITEM_ACCESS_DENIED);
 	    }
 		
@@ -130,7 +130,7 @@ public class BarterService {
 		Item item=barterRepository.findItemById(itemId).orElseThrow(
 				()-> new RestApiException(BarterErrorCode.ITEM_NOT_FOUND));
 		
-		if (!item.getUser().getId().equals(user.getId())) {
+		if (!item.getUser().equals(user)) {
 	        throw new RestApiException(BarterErrorCode.ITEM_ACCESS_DENIED);
 	    }
 		
@@ -169,7 +169,15 @@ public class BarterService {
 	}
 	
 	//아이템 상태 변경
-//	public 
+	public void restate(Long itemId, User user) {
+		Item item = barterRepository.findById(itemId).orElseThrow(
+				() -> new RestApiException(BarterErrorCode.ITEM_NOT_FOUND));
+		
+		if(item.getUser().equals(user)) {
+			;
+		}
+		
+	}
 	
 	//거래 제안
 	public void suggestDeal(Long fromItemId, Long toItemId, User fromUser) {
