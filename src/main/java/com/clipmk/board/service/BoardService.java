@@ -173,7 +173,7 @@ public class BoardService {
 		Elements imgTags = doc.select("img");
 		if (imgTags != null) {
             String srcAttribute = imgTags.attr("src");
-            if (srcAttribute.contains("https://clipmarket.s3.ap-northeast-2.amazonaws.com/posts/images/main")) {
+            if (srcAttribute.contains("https://clipmarkets3.s3.ap-northeast-2.amazonaws.com/posts/images/main")) {
                 thumbnail = srcAttribute;
             }
         }

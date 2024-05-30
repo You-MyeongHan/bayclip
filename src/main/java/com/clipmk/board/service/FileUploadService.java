@@ -26,7 +26,13 @@ public class FileUploadService {
     private String defaultUrl;
 
     @Value("${cloud.aws.s3.bucket.name}")
-    public String bucket;
+    private String bucket;
+    
+    @Value("${cloud.aws.s3.bucket.image.postTemp}")
+    private String postTemp;
+    
+    @Value("${cloud.aws.s3.bucket.image.post}")
+    private String post;
     
     private final AmazonS3Client amazonS3Client;
 
@@ -35,7 +41,7 @@ public class FileUploadService {
         String origName = uploadFile.getOriginalFilename();
         String url;
         try {
-            String tempFolder = "posts/images/temp/" + user.getId() + "/";
+            String tempFolder = postTemp + user.getId() + "/";
             
             // 파일이름 암호화, 확장자 찾기
             final String saveFileName = getUuid() + origName.substring(origName.lastIndexOf('.'));
