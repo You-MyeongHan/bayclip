@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+    <div th:replace="~{fragments/nav :: nav}"></div>
+    
+    <div class="container">
+        <div class="row">
+            <!-- 왼쪽 여백 -->
+            <div class="col-2">
+                <!-- 왼쪽 사이드바 내용 -->
+            </div>
+            
+            <!-- 메인 컨텐츠 -->
+            <div class="col-8">
+                <div class="post-container">
+                    <div class="post-header">
+                        <h1 class="post-title">게시글 제목입니다</h1>
+                        <div class="post-info">
+                            <span class="author">작성자: 홍길동</span>
+                            <span class="date">2024-03-19 14:30</span>
+                            <span class="views">조회수: 100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-content">
+                        <p>게시글 내용이 여기에 들어갑니다.</p>
+                        <p>여러 줄의 내용이 들어갈 수 있습니다.</p>
+                    </div>
+                    
+                    <!-- 댓글 섹션 -->
+                    <div class="comments-section">
+                        <h3>댓글</h3>
+                        
+                        <!-- 댓글 작성 폼 -->
+                        <div class="comment-form">
+                            <textarea placeholder="댓글을 입력하세요"></textarea>
+                            <button class="submit-comment">댓글 작성</button>
+                        </div>
+                        
+                        <!-- 댓글 목록 -->
+                        <div class="comments-list">
+                            <!-- 댓글 1 -->
+                            <div class="comment-item depth-0">
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">댓글작성자1</span>
+                                        <span class="comment-date">2024-03-19 15:00</span>
+                                    </div>
+                                    <p>첫 번째 댓글입니다.</p>
+                                    <div class="comment-actions">
+                                        <button class="reply-button">답글</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- 대댓글 -->
+                                <div class="comment-item depth-1">
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">대댓글작성자1</span>
+                                            <span class="comment-date">2024-03-19 15:05</span>
+                                        </div>
+                                        <p>첫 번째 댓글의 답글입니다.</p>
+                                        <div class="comment-actions">
+                                            <button class="reply-button">답글</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 오른쪽 여백 -->
+            <div class="col-2">
+                <!-- 오른쪽 사이드바 내용 -->
+            </div>
+        </div>
+    </div>
+    
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

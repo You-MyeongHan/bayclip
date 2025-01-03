@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+    <div th:replace="~{fragments/nav :: nav}"></div>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="register-container">
+                    <h2>회원가입</h2>
+                    <form class="register-form" action="/member/register" method="post">
+                        <!-- 이메일 -->
+                        <div class="form-group">
+                            <label for="email">이메일 주소*</label>
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" required>
+                                <button type="button" class="verify-btn">인증하기</button>
+                            </div>
+                        </div>
+
+                        <!-- 휴대폰 번호 -->
+                        <div class="form-group">
+                            <label for="phone">휴대폰 번호*</label>
+                            <div class="input-group">
+                                <input type="tel" id="phone" name="phone" 
+                                       pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" 
+                                       placeholder="010-0000-0000" required>
+                                <button type="button" class="verify-btn">인증하기</button>
+                            </div>
+                        </div>
+
+                        <!-- 비밀번호 -->
+                        <div class="form-group">
+                            <label for="password">비밀번호*</label>
+                            <input type="password" id="password" name="password" 
+                                   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                                   required>
+                            <small class="form-text">영문, 숫자, 특수문자를 포함하여 8자 이상</small>
+                        </div>
+
+                        <!-- 비밀번호 확인 -->
+                        <div class="form-group">
+                            <label for="passwordConfirm">비밀번호 확인*</label>
+                            <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                        </div>
+
+                        <!-- 닉네임 -->
+                        <div class="form-group">
+                            <label for="nickname">닉네임*</label>
+                            <div class="input-group">
+                                <input type="text" id="nickname" name="nickname" required>
+                                <button type="button" class="verify-btn">중복확인</button>
+                            </div>
+                        </div>
+
+                        <!-- 생년월일 -->
+                        <div class="form-group">
+                            <label for="birthDate">생년월일</label>
+                            <input type="date" id="birthDate" name="birthDate">
+                        </div>
+
+                        <!-- 약관 동의 -->
+                        <div class="form-group agreements">
+                            <div class="agreement-item">
+                                <input type="checkbox" id="agreeAll">
+                                <label for="agreeAll">전체 동의</label>
+                            </div>
+                            <div class="agreement-item">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <label for="agreeTerms">서비스 이용약관 동의 (필수)</label>
+                            </div>
+                            <div class="agreement-item">
+                                <input type="checkbox" id="agreePrivacy" required>
+                                <label for="agreePrivacy">개인정보 수집 및 이용 동의 (필수)</label>
+                            </div>
+                            <div class="agreement-item">
+                                <input type="checkbox" id="agreeMarketing">
+                                <label for="agreeMarketing">마케팅 정보 수신 동의 (선택)</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">가입하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

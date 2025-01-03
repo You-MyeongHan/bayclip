@@ -1,0 +1,43 @@
+footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-info {
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links li a {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links li a:hover {
+    color: var(--primary-color);
+}
+
+.company-info {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.company-info p {
+    margin: 5px 0;
+} 

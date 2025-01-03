@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav th:fragment="nav" class="main-nav">
+    <div class="nav-top">
+        <div class="container">
+            <div class="logo">
+                <a th:href="@{/}">클립마켓</a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="검색어를 입력하세요">
+                <button type="submit">검색</button>
+            </div>
+            <div class="user-menu">
+                <a href="#" class="login-btn" onclick="toggleLoginPopup(event)">로그인</a>
+                <div class="login-popup">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="아이디" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="비밀번호" required>
+                        </div>
+                        <div class="form-options">
+                            <label>
+                                <input type="checkbox"> 로그인 상태 유지
+                            </label>
+                            <div class="forgot-links">
+                                <a href="#">아이디 찾기</a>
+                                <span>|</span>
+                                <a href="#">비밀번호 찾기</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="login-submit-btn">로그인</button>
+                    </form>
+                </div>
+                <a th:href="@{/member/register}">회원가입</a>
+            </div>
+        </div>
+    </div>
+    <div class="nav-bottom">
+        <div class="container">
+            <ul class="main-menu">
+                <li class="menu-item">
+                    <a href="#">유머</a>
+                    <ul class="submenu">
+                        <li><a href="#">유머 게시판</a></li>
+                        <li><a href="#">짤방</a></li>
+                        <li><a href="#">움짤</a></li>
+                        <li><a href="#">베스트 유머</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#">스포츠</a>
+                    <ul class="submenu">
+                        <li><a href="#">축구</a></li>
+                        <li><a href="#">야구</a></li>
+                        <li><a href="#">농구</a></li>
+                        <li><a href="#">해외 스포츠</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#">게임</a>
+                    <ul class="submenu">
+                        <li><a href="#">PC게임</a></li>
+                        <li><a href="#">콘솔게임</a></li>
+                        <li><a href="#">모바일게임</a></li>
+                        <li><a href="#">게임뉴스</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#">일반</a>
+                    <ul class="submenu">
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">질문/답변</a></li>
+                        <li><a href="#">토론/정치</a></li>
+                        <li><a href="#">공지사항</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#">생활</a>
+                    <ul class="submenu">
+                        <li><a href="#">요리</a></li>
+                        <li><a href="#">건강</a></li>
+                        <li><a href="#">패션</a></li>
+                        <li><a href="#">인테리어</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#">연예</a>
+                    <ul class="submenu">
+                        <li><a href="#">연예뉴스</a></li>
+                        <li><a href="#">방송/드라마</a></li>
+                        <li><a href="#">영화</a></li>
+                        <li><a href="#">음악</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#">취미</a>
+                    <ul class="submenu">
+                        <li><a href="#">독서</a></li>
+                        <li><a href="#">영화/드라마</a></li>
+                        <li><a href="#">음악/악기</a></li>
+                        <li><a href="#">여행</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</html> 

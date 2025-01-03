@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+    <div th:replace="~{fragments/nav :: nav}"></div>
+    
+    <div class="container">
+        <div class="row">
+            <!-- 메인 컨텐츠 영역 -->
+            <div class="col-9">
+                <div class="board-list">
+                    <h2>자유게시판</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                                <th>조회</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a th:href="@{/board/post/1}">게시글 제목입니다</a></td>
+                                <td>작성자</td>
+                                <td>2024-03-19</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 우측 사이드바 -->
+            <div class="col-3">
+                <div class="ranking-box">
+                    <h3>실시간 랭킹</h3>
+                    <ul>
+                        <li>1. 인기 키워드 1</li>
+                        <li>2. 인기 키워드 2</li>
+                        <li>3. 인기 키워드 3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
